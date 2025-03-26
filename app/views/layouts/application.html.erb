@@ -10,8 +10,7 @@
     <%= yield :head %>
 
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="/csa_logo.png" type="image/png">
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
@@ -20,16 +19,18 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
       body {
-        background-image: url('/cseIITM.jpeg');
+        background-image: url('/new_bg1.jpg');
         background-size: cover;
         background-attachment: fixed;
         background-repeat: no-repeat;
-        background-position: center top -100px;
+        background-position: center;
         margin: 0;
+        height: 100vh;
         padding: 0;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        border-bottom: 300px;
       }
       @media (max-width: 768px){
         body{
@@ -48,6 +49,8 @@
       }
 
       .footer-container {
+        position: relative;
+        left: 0;right: 0;bottom: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -106,7 +109,10 @@
 
   <body>
     <div class="Navigation_bar">
-      <div class="Brand"><%= link_to "CSA", root_path %></div>
+      <div class="brand_div">
+        <div><img src="/csa_logo.png" height="100px"></div>
+        <div class="Brand"><%= link_to "CSA", root_path %></div>
+      </div>
       <div class="nav_links flex-row-start-center">
         <!--<div class="nav_link"><%= link_to "Resources", root_path %></div>-->
         <div class="nav_link"><%= link_to "Hackathons", events_path %></div>
@@ -124,12 +130,12 @@
       </div>
       <div class="Nav_dropdown">
         <div class="drop-down-button">
-          <img class="drop-down-off" src="/three-dots-vertical.svg" height="20px">
+          <img class="drop-down-off" src="/three-dots-vertical-b.svg" height="20px">
         </div>
         <div>
           <div class="drop-down-menu">
             <div class="menu flex-column-start-center">
-              <div><img class="drop-down-on" src="/three-dots-horizontal.svg" height="20px"></div>
+              <div><img class="drop-down-on" src="/three-dots-horizontal-b.svg" height="20px"></div>
               <!--<div class="nav_link"><%= link_to "Resources", root_path %></div>-->
               <div class="nav_link"><%= link_to "Hackathons", events_path %></div>
               <div class="nav_link"><%= link_to "Cs trophy", cstrophy_index_path %></div>
@@ -180,20 +186,17 @@
       const ofb = document.querySelector('.drop-down-off');
       const onb = document.querySelector('.drop-down-on');
       const ddm = document.querySelector('.drop-down-menu');
-      const nb = document.querySelector('.Navigation_bar');
       onb.style.display = 'none';
       ddm.style.display = 'none';
       ofb.addEventListener('click', function(){
         ofb.style.display = 'none';
         onb.style.display = 'block';
         ddm.style.display = 'block';
-        nb.style.background = 'none';
       });
       onb.addEventListener('click', function(){
         ofb.style.display = 'block';
         onb.style.display = 'none';
         ddm.style.display = 'none';
-        nb.style.background = 'rgba(0, 0, 0, 0.5)';
       });
 
     </script>

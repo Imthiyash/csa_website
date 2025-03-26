@@ -8,7 +8,7 @@ class CstrophyController < ApplicationController
         params.permit(:batch_name, :points)
         @batch = BatchPoints.find_by(batch_name: params[:batch_name])
         if @batch
-            @batch.points += params[:points].to_i
+            @batch.points += params[:points].to_f
             @batch.save
         else
             BatchPoints.create(
